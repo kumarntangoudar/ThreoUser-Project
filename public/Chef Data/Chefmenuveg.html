@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Gradient background */
+            color: #fff;
+            background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-food-yellow-vector-fruit-orange-poster-banner-picture-image_1124821.jpg'); /* Replace with your image URL */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the background image */
+            position: relative; /* To position the save button relative to the body */
+            background-repeat: no-repeat; /* Prevents repeating the image */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 48px;
+            margin-bottom: 30px;
+            font-family: 'Helvetica', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .menu-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px white;
+            width: 280px;
+            margin: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 32px rgba(211, 205, 205, 0.2);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 4px solid #ff7e5f;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-card:hover .card-img {
+            transform: scale(1.1);
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .food-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            transition: color 0.3s ease;
+        }
+
+        .food-name:hover {
+            color: #ff7e5f;
+        }
+
+        .food-price {
+            font-size: 20px;
+            color: #ff7e5f;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .food-price:hover {
+            color: #feb47b;
+        }
+
+        button {
+            display: inline-block;
+            margin: 40px auto;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #ff7e5f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #feb47b;
+            transform: translateY(-5px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-card {
+                background-color: #eae1de;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Food Menu</h1>
+
+        <div class="menu-items">
+            <!-- Card 1 -->
+            <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQu0P3Ee9VGPTx6cKI1jMMWMF4jiK-EHr2Y7hXvTQ0ltTbuBFVdxiSkWKF2VP--k05OV0&usqp=CAU" alt="Ghee Rice" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Ghee Rice</p>
+                    <p class="food-price" contenteditable="true">₹120</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Pizza" alt="Pizza" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Pizza</p>
+                    <p class="food-price" contenteditable="true">$8.99</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Pasta" alt="Pasta" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Pasta</p>
+                    <p class="food-price" contenteditable="true">$7.99</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Salad" alt="Salad" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Salad</p>
+                    <p class="food-price" contenteditable="true">$4.99</p>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQu0P3Ee9VGPTx6cKI1jMMWMF4jiK-EHr2Y7hXvTQ0ltTbuBFVdxiSkWKF2VP--k05OV0&usqp=CAU" alt="Ghee Rice" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Ghee Rice</p>
+                    <p class="food-price" contenteditable="true">₹120</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Pizza" alt="Pizza" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Pizza</p>
+                    <p class="food-price" contenteditable="true">$8.99</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Pasta" alt="Pasta" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Pasta</p>
+                    <p class="food-price" contenteditable="true">$7.99</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Salad" alt="Salad" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Salad</p>
+                    <p class="food-price" contenteditable="true">$4.99</p>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQu0P3Ee9VGPTx6cKI1jMMWMF4jiK-EHr2Y7hXvTQ0ltTbuBFVdxiSkWKF2VP--k05OV0&usqp=CAU" alt="Ghee Rice" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Ghee Rice</p>
+                    <p class="food-price" contenteditable="true">₹120</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Pizza" alt="Pizza" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Pizza</p>
+                    <p class="food-price" contenteditable="true">$8.99</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Pasta" alt="Pasta" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Pasta</p>
+                    <p class="food-price" contenteditable="true">$7.99</p>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="menu-card">
+                <img src="https://via.placeholder.com/250x200?text=Salad" alt="Salad" class="card-img">
+                <div class="card-body">
+                    <p class="food-name" contenteditable="true">Salad</p>
+                    <p class="food-price" contenteditable="true">$4.99</p>
+                </div>
+            </div>
+
+            <!-- Additional Cards (5 to 14) remain the same -->
+
+        </div>
+        
+        <button onclick="updateMenu()">Update Menu</button>
+    </div>
+
+    <div class="footer">
+        <p>Food Menu</p>
+    </div>
+
+    <script>
+       function updateMenu() {
+    const menuItems = document.querySelectorAll('.menu-card');
+    
+    menuItems.forEach(item => {
+        const name = item.querySelector('.food-name').innerText;
+        const price = item.querySelector('.food-price').innerText;
+        
+        // Corrected the console.log syntax by using proper template literals
+        console.log(`Updated Item: ${name} - Price: ${price}`);
+    });
+    alert('Menu Updated!');
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Page with Save Option</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            position: relative;
+    background-image: url('https://png.pngtree.com/background/20210711/original/pngtree-food-yellow-vector-fruit-orange-poster-banner-picture-image_1124821.jpg');  /* Path to the image file */
+    background-size: cover;  /* Ensures the image covers the entire page */
+    background-position: center center;  /* Center the image */
+    background-repeat: no-repeat;  /* Prevent the image from repeating */
+
+        }
+
+        h1 {
+            position: absolute;
+            top: 50px;
+            left: 80px;
+            margin: 0;
+            font-size: 70px;
+            color: black;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .button {
+            width: 50%;
+            margin: 15px 0;
+            padding: 10px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        iframe {
+            margin-top: 20px;
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        .save-button {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            font-size: 18px;
+            padding: 20px 40px;
+            background-color: #FFC107;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .save-button:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hotel Details</h1>
+    <div class="container">
+        <button class="button" onclick="showInfo('name')">Name</button>
+        <button class="button" onclick="showInfo('address')">Address</button>
+        <button class="button" onclick="showMap()">Google Map</button>
+        <div id="content" style="margin-top: 20px; font-size: 18px;"></div>
+        <iframe id="map" style="display: none;"></iframe>
+    </div>
+
+    <!-- Save button at the bottom -->
+    <button class="save-button" onclick="saveData()">Save</button>
+
+    <script>
+        // Define hotel data
+        const hotelData = {
+            name: "Disha Hotel",
+            address: "ujire circle, belthangady, DK",
+            mapLocation: "https://www.google.com/maps?q=123+Sunshine+St,+Sunny+City,+SC+98765&output=embed"
+        };
+
+        // Function to show information when clicking buttons
+        function showInfo(type) {
+            const content = document.getElementById('content');
+
+            if (type === 'name') {
+                content.innerHTML = `<strong>Hotel Name:</strong> ${hotelData.name}`;
+            } else if (type === 'address') {
+                content.innerHTML = `<strong>Address:</strong> ${hotelData.address}`;
+            }
+        }
+
+        // Function to display the Google Map iframe
+        function showMap() {
+            const iframe = document.getElementById('map');
+            iframe.style.display = "block";
+            iframe.src = hotelData.mapLocation;
+        }
+
+        // Function to simulate saving data (can be extended to save to a server)
+        function saveData() {
+            // For now, we'll just show an alert to simulate saving data
+            alert('Hotel data saved!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <style>
+        /* General Styling */
+        body {
+            background-color: #222;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            background-color: #444;
+            color: #ddd;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #ff9900;
+            margin-bottom: -10px;
+        }
+
+        /* Layout for Food Items */
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .button-item {
+            text-align: center;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            height: 450px; /* Increased height for better image space */
+            overflow: hidden;
+            justify-content: space-between;
+        }
+
+        .food-details {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start; /* Align the name to the left */
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the left */
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        /* Highlighted Food Name */
+        .food-name {
+            font-size: 1.2em; /* Increased size */
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffcc00; /* Yellow for high contrast */
+            background-color: rgba(0, 0, 0, 0.5); /* Dark background for better visibility */
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* Enlarge and fill the images */
+        .food-image {
+            width: 100%; /* Set to 100% width to fill the container */
+            height: 340px; /* Fixed height */
+            object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Price and Select Button in one side */
+        .food-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            bottom: 10px; /* Align to bottom */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .select-button {
+            background-color: #444;
+            color: #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            width: 100px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .select-button.selected {
+            background-color: #28a745;
+        }
+
+        .select-button:hover {
+            background-color: #555;
+        }
+
+        /* Done Button */
+        .done-button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto;
+        }
+
+        .done-button:hover {
+            background-color: #218838;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation Buttons -->
+<div class="nav-buttons">
+    <button>←</button>
+    <button>MENU</button>
+</div>
+
+<!-- Button Container for Food Menu Items -->
+<div class="button-container">
+    <!-- Food Items -->
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Mutton Curry</div>
+            <img src="https://i.ytimg.com/vi/3leU-RsHEOo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDpvmNsHPQdxgYVzcI4wtef2-XVCQ" alt="Mutton Curry" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹350</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Fish Curry</div>
+            <img src="https://www.licious.in/blog/wp-content/uploads/2022/03/shutterstock_1891229335-min.jpg" alt="Fish Curry" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹320</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Chicken Biryani</div>
+            <img src="https://c.ndtvimg.com/2022-04/fq5cs53_biryani-doubletree-by-hilton_625x300_12_April_22.jpg" alt="Chicken Biryani" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹300</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Tandoori Chicken</div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReHVKlV7scZ8hdTffcu1Oe07UXZvMVJarxQIbyV0TCBkLsIl9vwCfhRrLTtqGOpmBFerA&usqp=CAU" alt="Tandoori Chicken" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹450</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Chicken 65</div>
+            <img src="https://i.ytimg.com/vi/0KdboN6Rkck/maxresdefault.jpg" alt="Chicken 65" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹400</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">BBQ Ribs</div>
+            <img src="https://www.foodnetwork.com/content/dam/images/food/fullset/2015/7/21/3/FNM_090115-Best-Barbecue-Ribs-Ever-Recipe_s4x3.jpg" alt="BBQ Ribs" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹500</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Grilled Salmon</div>
+            <img src="https://www.dinneratthezoo.com/wp-content/uploads/2019/05/grilled-salmon-final-2.jpg" alt="Grilled Salmon" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹200</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Beef Steak</div>
+            <img src="https://arteflame.com/cdn/shop/articles/perfectly-grilled-beef-steak-arteflame.webp?v=1727908623&width=1600" alt="Beef Steak" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹250</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Butter Roti</div>
+            <img src="https://anandschicken.com/wp-content/uploads/2021/06/Hotel-img-25.jpg" alt="Butter Roti" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹150</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Chicken wings</div>
+            <img src="https://images.getrecipekit.com/20240103192542-buffalo-chicken-wings.jpg?aspect_ratio=4:3&quality=90&" alt="Chicken wings" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹100</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Duck Confit</div>
+            <img src="https://www.recipetineats.com/tachyon/2021/06/Duck-Confit-photo-_8-SQ.jpg" alt="Duck Confit" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹80</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Parotta</div>
+            <img src="https://www.spicingyourlife.com/wp-content/uploads/2014/04/Veechu-parotta.jpg" alt="Parotta" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹220</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Crab Curry</div>
+            <img src="https://lh3.googleusercontent.com/proxy/b8gtRH8OQwDFRZJ1uLJBidAt78o3b6RO-jTe_VhyiMKk0TnDVKv8Gl-Bu9uZCEKOp3SCmQ4DpDkBu1tt0hv2hwsfnG8utEp7ho42qr3K8USJ2MeuN3KH1SrI4V3038U" alt="Crab Curry" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹180</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+    <div class="button-item">
+        <div class="food-details">
+            <div class="food-name">Chicken lollipop</div>
+            <img src="https://www.licious.in/blog/wp-content/uploads/2022/02/shutterstock_761402230.jpg" alt="Chicken lollipop" class="food-image">
+        </div>
+        <div class="food-info">
+            <span class="price">₹300</span>
+            <button class="select-button">Select</button>
+        </div>
+    </div>
+</div>
+
+<button class="done-button">Done</button>
+
+<script>
+    // Array to store selected items
+const selectedItems = [];
+
+// Function to toggle selection
+function toggleSelection(event) {
+    const button = event.target;
+    const foodName = button.closest('.button-item').querySelector('.food-name').innerText;
+
+    button.classList.toggle('selected');
+
+    if (button.classList.contains('selected')) {
+        button.innerText = 'Selected';
+        selectedItems.push(foodName);
+    } else {
+        button.innerText = 'Select';
+        const index = selectedItems.indexOf(foodName);
+        if (index > -1) {
+            selectedItems.splice(index, 1);
+        }
+    }
+
+    console.log('Selected Items:', selectedItems);
+}
+
+// Attach event listeners to all select buttons
+const selectButtons = document.querySelectorAll('.select-button');
+selectButtons.forEach(button => button.addEventListener('click', toggleSelection));
+
+// Handle Done button click
+document.querySelector('.done-button').addEventListener('click', () => {
+    alert(`You have selected: ${selectedItems.join(', ')}`);
+});
+</script>
+</body>
+</html>

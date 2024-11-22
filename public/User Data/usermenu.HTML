@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Control Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: transparent;
+            /* Removed background color */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            /* White background for the container */
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            /* Width adjusted to make sure it fits */
+            max-width: 500px;
+            /* Max width for large screens */
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 3em;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            width: 80%;
+            /* Buttons take up full width available */
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            font-size: 2em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            width: 100%;
+            /* Make buttons expand to fill container */
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .status {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .status.off {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Hotel Control Panel</h1>
+
+        <!-- Button Container for Hotel Actions -->
+        <div class="button-container">
+            <a href="D:\5th\ThreoUser\public\User Data\In-Hotel.HTML">
+                <button id="in-hotel" onclick="updateStatus('in')">In Hotel</button>
+            </a>
+            <a href="D:\5th\ThreoUser\public\User Data\userout-hotel.html">
+                <button id="out-hotel" onclick="updateStatus('out')">Out Hotel</button>
+            </a>
+            <a href="D:\5th\ThreoUser\public\User Data\userdoorstep.html">
+                <button id="open-door" onclick="openDoor()">Open Door</button>
+            </a>
+        </div>
+
+
+        <!-- Status Display -->
+        <div id="status" class="status off">
+            Currently: Not in Hotel
+        </div>
+    </div>
+
+    <script>
+        function updateStatus(status) {
+            const statusElement = document.getElementById('status');
+
+            if (status === 'in') {
+                statusElement.textContent = "Currently: In Hotel";
+                statusElement.classList.remove('off');
+                statusElement.classList.add('on');
+                window.location.href = '/user-in-hotel';
+            } else if (status === 'out') {
+                statusElement.textContent = "Currently: Out of Hotel";
+                statusElement.classList.remove('on');
+                statusElement.classList.add('off');
+            }
+        }
+
+        function openDoor() {
+            alert("The door is now open.");
+            // Here you could link to another page or trigger an actual door opening action, if integrated with IoT devices.
+        }
+    </script>
+
+</body>
+
+</html>

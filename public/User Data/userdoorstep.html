@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Page with Save Option</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .button {
+            width: 80%;
+            margin: 20px;
+            padding: 15px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        iframe {
+            margin-top: 20px;
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+        .save-button {
+            position: fixed;
+            bottom: 50px;
+            right: 100px;
+            font-size: 25px;
+            padding: 10px 20px;
+            background-color: #FFC107;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .save-button:hover {
+            background-color: #e0a800;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="button" onclick="editInfo('name')">Name</button>
+        <button class="button" onclick="editInfo('address')">Address</button>
+        <button class="button" onclick="editInfo('time')">Time</button>
+        <button class="button" onclick="showMap()">Add Location</button>
+        <button class="button" onclick="viewItems('veg')">Veg Items</button>
+        <button class="button" onclick="viewItems('nonveg')">Non-Veg Items</button>
+        <div id="content" style="margin-top: 20px; font-size: 18px;"></div>
+        <iframe id="map" style="display: none;"></iframe>
+    </div>
+    <button class="save-button" onclick="saveData()">Save</button>
+    
+    <script>
+        let restaurantInfo = {
+            name: "Gourmet Paradise",
+            address: "123 Foodie Lane, Taste City, Yumland 45678",
+            items: {
+                veg: ["Salad", "Paneer Tikka", "Veg Biryani"],
+                nonveg: ["Chicken Curry", "Lamb Chops", "Prawn Masala"]
+            }
+        };
+
+        function showInfo(type) {
+            const content = document.getElementById('content');
+            const map = document.getElementById('map');
+            map.style.display = 'none';
+
+            if (type === 'name') {
+                content.innerHTML = `<strong>Restaurant Name:</strong> ${restaurantInfo.name}`;
+            } else if (type === 'address') {
+                content.innerHTML = `<strong>Address:</strong> ${restaurantInfo.address}`;
+            }
+        }
+
+        function showMap() {
+            const content = document.getElementById('content');
+            const map = document.getElementById('map');
+            content.innerHTML = '';
+            map.style.display = 'block';
+            map.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509378!2d144.95592751531695!3d-37.817209979751294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577ea46273e57c!2sMelbourne%20Central!5e0!3m2!1sen!2sau!4v1665996476786!5m2!1sen!2sau';
+        }
+
+        function viewItems(type) {
+            const content = document.getElementById('content');
+            const items = restaurantInfo.items[type];
+            content.innerHTML = `<strong>Menu Items:</strong><br>${items.join('<br>')}`;
+        }
+
+        function editInfo(type) {
+            let newValue;
+            if (type === 'name') {
+                newValue = prompt("Enter the new restaurant name:", restaurantInfo.name);
+                if (newValue) restaurantInfo.name = newValue;
+            } else if (type === 'address') {
+                newValue = prompt("Enter the new address:", restaurantInfo.address);
+                if (newValue) restaurantInfo.address = newValue;
+            }
+            alert("Information updated successfully!");
+        }
+
+        function saveData() {
+            const dataToSave = JSON.stringify(restaurantInfo, null, 2);
+            const blob = new Blob([dataToSave], { type: "application/json" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "restaurant_info.json";
+            a.click();
+            alert("Data saved successfully!");
+        }
+    </script>
+</body>
+</html>

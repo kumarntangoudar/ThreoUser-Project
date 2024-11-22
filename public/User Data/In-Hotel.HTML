@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Menu Control</title>
+<style>
+    /* Resetting default margins and paddings */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #1a1a1a;
+        font-family: Arial, sans-serif;
+        color: #fff;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 500px; /* Resize the container to fit more buttons */
+        padding: 20px;
+        background-color: #1a1a1a;
+    }
+
+    .header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .header a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5em;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .button, .dropdown {
+        padding: 15px;
+        width: 100%; /* Make the buttons and dropdowns take up full width */
+        height: 50px; /* Set a uniform height for the buttons */
+        border: 1px solid #8888ff;
+        border-radius: 10px;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1em;
+        text-align: center;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+
+    .button:hover, .dropdown:hover {
+        background-color: #444;
+        border-color: #aaaaff;
+    }
+
+    /* Styling the select dropdown */
+    .recommendation-select, .special-select, .table-select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 1px solid #8888ff;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1em;
+    }
+
+    /* Styling the text input field */
+    .name-input {
+        width: 100%;
+        height: 50px;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 1px solid #8888ff;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1em;
+    }
+
+    /* Styling the text buttons */
+    .text-button {
+        width: 100%;
+        padding: 15px;
+        height: 50px;
+        border: 1px solid #8888ff;
+        border-radius: 10px;
+        background-color: transparent;
+        color: #fff;
+        font-size: 1em;
+        text-align: center;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+
+    .text-button:hover {
+        background-color: #444;
+        border-color: #aaaaff;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+    
+
+    <div class="button-container">
+        <!-- Table No button and dropdown next to it -->
+        <div class="button-wrapper">
+            <select class="table-select dropdown">
+                <option value="1">Table 1</option>
+                <option value="2">Table 2</option>
+                <option value="3">Table 3</option>
+                <option value="4">Table 4</option>
+                <option value="5">Table 5</option>
+            </select>
+        </div>
+
+        <!-- Name text filling bar and input next to it -->
+        <div class="button-wrapper">
+            
+            <input type="text" class="name-input" placeholder="Enter Name">
+        </div>
+
+        <!-- Recommendation text button and dropdown next to button -->
+        <!--<div class="button-wrapper">
+            <button class="text-button">Recommendation</button>
+            <select class="recommendation-select dropdown">
+                <option value="starter">Starter</option>
+                <option value="main-course">Main Course</option>
+                <option value="dessert">Dessert</option>
+            </select>
+        </div>-->
+
+        <!-- Day Special text button and dropdown next to button -->
+       <!-- <div class="button-wrapper">
+            <button class="text-button">Day Special</button>
+            <select class="special-select dropdown">
+                <option value="pizza">Pizza</option>
+                <option value="burger">Burger</option>
+                <option value="pasta">Pasta</option>
+                <option value="salad">Salad</option>
+            </select>
+        </div>-->
+        <a href="D:\5th\ThreoUser\public\User Data\uservegmenu.html">
+            <button class="button" onclick="handleSubmit()">View Items</button>
+        </a>
+    </div>
+</div>
+<script>
+    const handleSubmit=()=>{
+        window.location.href = '/vegMenu'; 
+
+    }
+</script>
+</body>
+</html>
